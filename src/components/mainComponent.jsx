@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Button, Row, Form, FormGroup } from 'reactstrap';
 import { Contact } from './editComponents/contactComp'
-import { Education } from './editComponents/eduComp'
+import Education from './editComponents/eduComp'
 import uniqid from 'uniqid'
 
 class Main extends React.Component {
@@ -31,19 +31,7 @@ class Main extends React.Component {
                         </Row>
 
                         <Row>
-                              <div>
-                                    {this.state.addEducation.map(()=>{ 
-                                          let formid = uniqid();
-                                          return (
-                                                <div key={formid}>
-                                                      <Education />
-                                                </div>
-                                          )
-                                    })}
-                              </div>      
-                              <div>
-                                    <Button onClick={()=> this.addEducationButton()} >Add Education</Button>
-                              </div>
+                              <Education/>
                         </Row>
                   </Container>
             );
