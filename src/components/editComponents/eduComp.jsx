@@ -33,7 +33,7 @@ class RenderStudy extends Component {
       onSubmitEducation = (e) => {
             e.preventDefault();
             this.setState({
-                  editing: false,
+                  editing: !this.state.editing,
                   educationArray: this.state.educationArray.concat(this.state.educationItem),
                   educationItem: { school: '', study: '', dateFrom: '', dateTo: '' }
 
@@ -100,7 +100,8 @@ class RenderStudy extends Component {
                             </div>
                         </Row>
                     </FormGroup>
-                    <Button type="submit"> Add Education </Button>
+                    
+                    {this.state.editing ? (<Button type="submit">Submit</Button> ):( <Button type="submit">Edit</Button>)}
                   </Form>
                 </div>
             )
@@ -108,13 +109,54 @@ class RenderStudy extends Component {
       }
 };
 
-function Education() {
-      let studyArray = [1]
+function addStudy() {
+      let studyArray = [1];
+
+      let a = studyArray.length
+
+      studyArray.push(++a)
+      console.log(a)
+
       return (
             <div>
                 {studyArray.map((item, i) => (<RenderStudy id={item}/>))}
             </div>
-      )
+      );
+}
+
+class Education extends Component {
+      constructor() {
+            super();
+
+            this.state = {
+                  studyArray: []
+            }
+      }
+
+      onSubmitStudy = (e) => {
+            console.log("onsubmit")
+            e.preventDefault();
+            this.setState({
+                  studyArray: this.state.studyArray.concat([0])
+            })
+      }
+
+      render() {
+            const {studyArray} = this.state
+            return (
+                  <div>
+                {/*{this.state.studyArray.map((item, i) => (<RenderStudy id={item}/>))}*/}
+
+                
+
+                <form onSubmit={this.onSubmitStudy}>
+                    <Button type="submit">add</Button>
+                </form>
+                <RenderStudy id={studyArray}/>
+            </div>
+            )
+      }
+
 }
 
 export default Education;
