@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-
+import uniqid from 'uniqid'
 
 
 class RenderStudy extends Component {
@@ -26,10 +26,7 @@ class RenderStudy extends Component {
 
             })
       }
-      handleDelete = itemId => {
-            const tasks = this.state.tasks.filter(item => item.id !== itemId);
-            this.setState({ tasks: tasks })
-      }
+
       onSubmitEducation = (e) => {
             e.preventDefault();
             this.setState({
@@ -40,11 +37,14 @@ class RenderStudy extends Component {
             });
       }
 
+
       render() {
+            //console.log(this.props.id, " this is id")
             return (
-                  <div>
+                  <div key={this.props.id} >
                     <div className="row text-center">
                         <h1>Add Areas of Study</h1>
+                        <button onClick={() => this.props.onDelete(this.props.id)}>X</button>
                     </div>
                   <Form className="row" onSubmit={this.onSubmitEducation}>
                     <FormGroup className="col-md-5">
@@ -109,21 +109,6 @@ class RenderStudy extends Component {
       }
 };
 
-function addStudy() {
-      let studyArray = [1];
-
-      let a = studyArray.length
-
-      studyArray.push(++a)
-      console.log(a)
-
-      return (
-            <div>
-                {studyArray.map((item, i) => (<RenderStudy id={item}/>))}
-            </div>
-      );
-}
-
 class Education extends Component {
       constructor() {
             super();
@@ -134,26 +119,33 @@ class Education extends Component {
       }
 
       onSubmitStudy = (e) => {
-            console.log("onsubmit")
+            //console.log("onsubmit")
             e.preventDefault();
             this.setState({
-                  studyArray: this.state.studyArray.concat([0])
+                  studyArray: this.state.studyArray.concat([uniqid()])
             })
+      }
+      handleDelete = itemId => {
+            const newStudy = this.state.studyArray.filter(item => { return item != itemId });
+            this.setState({ studyArray: newStudy })
+            console.log("ondelete: " + newStudy)
+            console.log("to be delted: " + itemId)
       }
 
       render() {
-            const {studyArray} = this.state
+            const { studyArray } = this.state
             return (
                   <div>
-                {/*{this.state.studyArray.map((item, i) => (<RenderStudy id={item}/>))}*/}
+                    <div className="row text-center">
+                        <h1>Add Areas of Study</h1>
+                    </div>
+                    {this.state.studyArray.map((item, i) => (<RenderStudy key={item} id={item} onDelete={this.handleDelete} />))}
 
+                    <form onSubmit={this.onSubmitStudy}>
+                        <Button type="submit">add</Button>
+                    </form>
                 
-
-                <form onSubmit={this.onSubmitStudy}>
-                    <Button type="submit">add</Button>
-                </form>
-                <RenderStudy id={studyArray}/>
-            </div>
+                  </div>
             )
       }
 
