@@ -5,10 +5,32 @@ import Education from './editComponents/eduComp'
 import uniqid from 'uniqid'
 
 class Main extends React.Component {
-      constructor(props) {
-            super(props);
+      constructor() {
+            super();
             this.state = {
-                  addEducation: []
+                  education: {
+                        school: '',
+                        study: '',
+                        dateFrom: '',
+                        dateTo: '',
+                        editing: true,
+                        educationArray: [],
+                  },
+                  about: {
+                        editing: true,
+                        fname: "",
+                        lname: "",
+                        email: "",
+                        phone: "",
+                  },
+                  work: {
+                        editing: true,
+                        company: "",
+                        title: "",
+                        desc: "",
+                        xp: "",
+
+                  }
             };
 
 
@@ -27,11 +49,11 @@ class Main extends React.Component {
             return (
                   <Container className="bg-light">
                         <Row>
-                              <Contact/>
+                              <Contact contact={this.state.about}/>
                         </Row>
 
                         <Row>
-                              <Education/>
+                              {<Education />}
                         </Row>
                   </Container>
             );
