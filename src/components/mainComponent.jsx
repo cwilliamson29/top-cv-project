@@ -13,7 +13,8 @@ class Main extends React.Component {
                         study: '',
                         dateFrom: '',
                         dateTo: '',
-                        editing: true,
+                        editing: false,
+                        editId: '',
                         educationArray: [],
                   },
                   about: {

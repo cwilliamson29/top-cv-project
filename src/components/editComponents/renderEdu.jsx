@@ -6,8 +6,7 @@ import uniqid from 'uniqid'
 class RenderEducation extends Component {
       constructor(props) {
             super(props);
-            this.state = this.props.education
-
+            this.state = this.props.education;
       }
 
 
@@ -41,7 +40,7 @@ class RenderEducation extends Component {
                         <h1>Add Areas of Study</h1>
                         <button onClick={() => this.props.onDelete(this.state.id)}> X - {this.state.id}</button>
                     </div>
-                  <Form className="row" onSubmit={this.onSubmitEducation}>
+                  <Form className="row">
                     <FormGroup className="col-md-5">
                         <Row>
                             <div className="col-md-2">
