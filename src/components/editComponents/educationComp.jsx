@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Label, Input, Button, Col } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import uniqid from 'uniqid'
 import RenderEducation from './renderEdu'
 

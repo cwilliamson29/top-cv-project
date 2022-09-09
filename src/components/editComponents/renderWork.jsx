@@ -27,8 +27,8 @@ class RenderWork extends Component {
                   		<Col md={1}>
                   			<span onClick={() => {this.setState({ editing: false });}}><FontAwesomeIcon icon={faFloppyDisk} size="xl" /></span>
                   		</Col>
-                  		<Col md={10}>
-                  			{this.state.id}
+                  		<Col md={10} className="text-center">
+                  			Work History
                   		</Col>
                   		<Col md={1} className="text-end">
                   			<span onClick={() => this.props.onDelete(this.state.id)}><FontAwesomeIcon icon={faTrash} size="xl" /></span>
@@ -69,7 +69,7 @@ class RenderWork extends Component {
                                     <Label for="dateTo">Job Description:</Label>
                               </div>
                               <div className="col-md-10 pb-3">
-                                    <Input type="textarea" onChange={this.handleChange} value={this.state.dateTo} id="desc" /> 
+                                    <Input type="textarea" onChange={this.handleChange} value={this.state.desc} id="desc" /> 
                               </div>
                         </Row>
                   	</CardBody>
@@ -86,8 +86,8 @@ class RenderWork extends Component {
                   		<Col md={1}>
                   			<span onClick={() => {this.setState({ editing: true });}}><FontAwesomeIcon icon={faFilePen} size="xl" /></span>
                   		</Col>
-                  		<Col md={10}>
-                  			{this.state.id}
+                  		<Col md={10} className="text-center">
+                  			Work History
                   		</Col>
                   		<Col md={1} className="text-end">
                   			<span onClick={() => this.props.onDelete(this.state.id)}><FontAwesomeIcon icon={faTrash} size="xl" /></span>
@@ -122,6 +122,13 @@ class RenderWork extends Component {
                               </div>
                               <div className="col-md-4 pb-3 text-end fw-bold">
                                     <Label for="dateTo">{this.state.dateTo}</Label> 
+                              </div>
+
+                              <div className="col-md-2 text-end pb-3">
+                                    <Label for="dateTo">Job Description:</Label>
+                              </div>
+                              <div className="col-md-10 pb-3">
+                                    <Label for="dateTo">{this.state.desc}</Label>
                               </div>
                         </Row>
                   	</CardBody>

@@ -4,8 +4,8 @@ body {
 }
 
 @font-face {
-      font-family: font-custom;
-      src: url('SpecialElite-Regular.ttf');
+      font-family: 'customfont';
+      src: url('./SpecialElite-Regular.ttf');
 }
 
 .fill {
@@ -18,5 +18,5 @@ body {
 }
 
 .fc {
-      font-family: font-custom;
+      font-family: 'customfont';
 }

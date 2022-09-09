@@ -32,13 +32,13 @@ class Main extends React.Component {
             let count = 0;
 
             return (
-                  <Container className="bg-dark text-dark container-fluid min-vh-100 d-flex flex-column">
+                  <Container className="bg-dark text-dark container-fluid min-vh-100 d-flex flex-column fc">
                         <Row>
                               <div className="mt-5"></div>
                               <Col md={1}></Col>
                               <Col md={10}>
                                     <Card className="mb-5">
-                                          <CardHeader className="text-center h1 fc">CV-Project</CardHeader>
+                                          <CardHeader className="text-center h1">CV-Project</CardHeader>
                                           <CardBody className="mx-3">
                                                 <div>
                                                       <Contact key={uniqid} contact={this.state.about}/>

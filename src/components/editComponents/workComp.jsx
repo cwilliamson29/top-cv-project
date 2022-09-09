@@ -32,6 +32,7 @@ class Work extends React.Component {
                         title: '',
                         dateFrom: '',
                         dateTo: '',
+                        desc: '',
                         editing: true,
                   }]
             }))

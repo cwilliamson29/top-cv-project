@@ -27,8 +27,8 @@ class RenderEducation extends Component {
                   		<Col md={1}>
                   			<span onClick={() => {this.setState({ editing: false });}}><FontAwesomeIcon icon={faFloppyDisk} size="xl" /></span>
                   		</Col>
-                  		<Col md={10}>
-                  			{this.state.id}
+                  		<Col md={10} className="text-center">
+                  			Area of Study
                   		</Col>
                   		<Col md={1} className="text-end">
                   			<span onClick={() => this.props.onDelete(this.state.id)}><FontAwesomeIcon icon={faTrash} size="xl" /></span>
