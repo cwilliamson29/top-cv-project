@@ -5,7 +5,7 @@ body {
 
 @font-face {
       font-family: 'customfont';
-      src: url('./SpecialElite-Regular.ttf');
+      src: url('https://github.com/cwilliamson29/top-cv-project/blob/f1c50d0f103904f7503630e31e3d5b3b56b3af36/build/static/media/SpecialElite-Regular.cefed1373df28714f8e5.ttf');
 }
 
 .fill {
