@@ -29,7 +29,6 @@ class Education extends React.Component {
       }
 
       addEducation = (e) => {
-            //console.log('addEducation');
             e.preventDefault();
             this.setState(prevState => ({
                   educationArray: [...prevState.educationArray, {
@@ -41,7 +40,11 @@ class Education extends React.Component {
                         editing: true,
                   }]
             }))
-            //console.log(this.state.educationArray)
+      }
+
+      logger = (e) => {
+            e.preventDefault();
+            console.log(this.state.educationArray)
       }
 
       handleDelete(itemId) {
@@ -61,10 +64,13 @@ class Education extends React.Component {
                         <h1>Add Areas of Study</h1>
                     </div>
 
-                    {this.state.educationArray.map((item, i) => (<RenderEducation education={item} onDelete={this.handleDelete} />))}
+                    {this.state.educationArray.map((item, i) => (<RenderEducation key={item.id} education={item} onDelete={this.handleDelete} />))}
 
                     <form onSubmit={this.addEducation}>
                         <Button type="submit">add</Button>
+                    </form>
+                    <form onSubmit={this.logger}>
+                        <Button type="submit">log</Button>
                     </form>
                     
 

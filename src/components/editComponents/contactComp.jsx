@@ -21,6 +21,13 @@ export class Contact extends Component {
       PhoneChange = (e) => {
             this.setState({ phone: e.target.value, })
       }
+      handleChange = (e) => {
+            e.preventDefault();
+            this.setState({
+                  [e.target.id]: e.target.value,
+
+            })
+      }
 
 
       aboutEdit = () => {
@@ -31,7 +38,7 @@ export class Contact extends Component {
                                     <Label for="fName">First Name:</Label>
                               </div>
                               <div className="col-md-5">
-                                    <Input type="text" onChange={this.FirstNameChange} value={this.state.fname} id="fname" placeholder="First Name"/> 
+                                    <Input type="text" onChange={this.handleChange} value={this.state.fname} id="fname" placeholder="First Name"/> 
                               </div>
                         </Row>
                         <Row>
@@ -39,7 +46,7 @@ export class Contact extends Component {
                                     <Label for="lname">Last Name:</Label>
                               </div>
                               <div className="col-md-5">
-                                    <Input type="text" onChange={this.LastNameChange} value={this.state.lname} id="lname" placeholder="Last Name"/> 
+                                    <Input type="text" onChange={this.handleChange} value={this.state.lname} id="lname" placeholder="Last Name"/> 
                               </div>
                         </Row>
                         <Row>
@@ -47,7 +54,7 @@ export class Contact extends Component {
                                     <Label for="email">Email:</Label>
                               </div>
                               <div className="col-md-5">
-                                    <Input type="email" onChange={this.EmailChange} value={this.state.email} id="email" placeholder="You@you.com"/> 
+                                    <Input type="email" onChange={this.handleChange} value={this.state.email} id="email" placeholder="You@you.com"/> 
                               </div>
                         </Row>
                         <Row>
@@ -55,7 +62,7 @@ export class Contact extends Component {
                                     <Label for="phone">Phone:</Label>
                               </div>
                               <div className="col-md-5">
-                                    <Input type="phone" onChange={this.PhoneChange} value={this.state.phone} id="phone" placeholder="phone"/> 
+                                    <Input type="phone" onChange={this.handleChange} value={this.state.phone} id="phone" placeholder="phone"/> 
                               </div>
                         </Row>
                         <Button onClick={() => {this.setState({ editing: false });}}>Submit</Button>

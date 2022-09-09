@@ -8,21 +8,13 @@ class Main extends React.Component {
       constructor() {
             super();
             this.state = {
-                  education: {
-                        school: '',
-                        study: '',
-                        dateFrom: '',
-                        dateTo: '',
-                        editing: false,
-                        editId: '',
-                        educationArray: [],
-                  },
+                  educationArray: [],
                   about: {
                         editing: true,
-                        fname: "",
-                        lname: "",
-                        email: "",
-                        phone: "",
+                        fname: "asdfasdf",
+                        lname: "qwer",
+                        email: "qwer",
+                        phone: "qwer",
                   },
                   work: {
                         editing: true,
@@ -30,19 +22,10 @@ class Main extends React.Component {
                         title: "",
                         desc: "",
                         xp: "",
-
                   }
             };
-
-
       }
 
-      addEducationButton = () => {
-
-            this.setState({
-                  addEducation: this.state.addEducation.concat([0])
-            })
-      }
 
       render() {
             let count = 0;
@@ -50,12 +33,13 @@ class Main extends React.Component {
             return (
                   <Container className="bg-light">
                         <Row>
-                              <Contact contact={this.state.about}/>
+                              <Contact key={uniqid} contact={this.state.about}/>
                         </Row>
 
                         <Row>
-                              {<Education />}
+                              {<Education education={this.state.education}/>}
                         </Row>
+                        
                   </Container>
             );
       }
