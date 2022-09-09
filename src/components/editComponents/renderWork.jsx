@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFloppyDisk, faTrash, faFilePen } from '@fortawesome/free-solid-svg-icons';
 
 
-class RenderEducation extends Component {
+class RenderWork extends Component {
       constructor(props) {
             super(props);
-            this.state = this.props.education
+            this.state = this.props.work
 
       }
       handleChange = (e) => {
@@ -38,17 +38,17 @@ class RenderEducation extends Component {
                   	<CardBody>
                   		<Row className="pr-5 pl-2">
                               <div className="col-md-2 text-end pb-3">
-                                    <Label for="school">School:</Label>
+                                    <Label for="school">Company:</Label>
                               </div>
                               <div className="col-md-4 pb-3">
-                                    <Input type="text" onChange={this.handleChange} value={this.state.school} id="school" placeholder="School" /> 
+                                    <Input type="text" onChange={this.handleChange} value={this.state.company} id="company" placeholder="Company Name" /> 
                               </div>
                         
                               <div className="col-md-2 text-end pb-3">
-                                    <Label for="study">Area of study:</Label>
+                                    <Label for="study">Title:</Label>
                               </div>
                               <div className="col-md-4 pb-3">
-                                    <Input type="text" onChange={this.handleChange} value={this.state.study} id="study" placeholder="Area of study" /> 
+                                    <Input type="text" onChange={this.handleChange} value={this.state.title} id="title" placeholder="Your Title" /> 
                               </div>
                         
                               <div className="col-md-2 text-end pb-3">
@@ -63,6 +63,13 @@ class RenderEducation extends Component {
                               </div>
                               <div className="col-md-4 pb-3">
                                     <Input type="date" onChange={this.handleChange} value={this.state.dateTo} id="dateTo" /> 
+                              </div>
+
+                              <div className="col-md-2 text-end pb-3">
+                                    <Label for="dateTo">Job Description:</Label>
+                              </div>
+                              <div className="col-md-10 pb-3">
+                                    <Input type="textarea" onChange={this.handleChange} value={this.state.dateTo} id="desc" /> 
                               </div>
                         </Row>
                   	</CardBody>
@@ -90,17 +97,17 @@ class RenderEducation extends Component {
                   	<CardBody>
                         <Row>
                               <div className="col-md-2 text-end pb-3">
-                                    <Label for="school">School:</Label>
+                                    <Label for="company">Company:</Label>
                               </div>
                               <div className="col-md-4 pb-3 text-end fw-bold">
-                                    <Label for="school">{this.state.school}</Label> 
+                                    <Label for="company">{this.state.company}</Label> 
                               </div>
                         
                               <div className="col-md-2 text-end pb-3">
-                                    <Label for="study">Area of Study:</Label>
+                                    <Label for="title">Title:</Label>
                               </div>
                               <div className="col-md-4 pb-3 text-end fw-bold">
-                                    <Label for="study">{this.state.study}</Label> 
+                                    <Label for="title">{this.state.title}</Label> 
                               </div>
                         
                               <div className="col-md-2 text-end pb-3">
@@ -123,7 +130,7 @@ class RenderEducation extends Component {
             )
       }
 
-      studyLoad = () => {
+      workLoad = () => {
             if (this.state.editing) {
 
                   return (
@@ -143,11 +150,11 @@ class RenderEducation extends Component {
       render() {
             return (
                   <div key={this.props.id} >
-                    	{this.studyLoad()}
+                    	{this.workLoad()}
                   </div>
             )
       }
 
 }
 
-export default RenderEducation;
+export default RenderWork;

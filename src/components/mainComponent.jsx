@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Button, Row, Form, FormGroup } from 'reactstrap';
+import { Container, Card, CardHeader, Row, CardBody, Col } from 'reactstrap';
 import { Contact } from './editComponents/contactComp'
-import Education from './editComponents/eduComp'
+import Education from './editComponents/educationComp'
+import Work from './editComponents/workComp'
 import uniqid from 'uniqid'
 
 class Main extends React.Component {
@@ -11,17 +12,17 @@ class Main extends React.Component {
                   educationArray: [],
                   about: {
                         editing: true,
-                        fname: "asdfasdf",
-                        lname: "qwer",
-                        email: "qwer",
-                        phone: "qwer",
+                        fname: "",
+                        lname: "",
+                        email: "",
+                        phone: "",
                   },
                   work: {
                         editing: true,
                         company: "",
                         title: "",
-                        desc: "",
-                        xp: "",
+                        dateFrom: "",
+                        dateTo: "",
                   }
             };
       }
@@ -31,15 +32,33 @@ class Main extends React.Component {
             let count = 0;
 
             return (
-                  <Container className="bg-light">
+                  <Container className="bg-dark text-dark container-fluid min-vh-100 d-flex flex-column">
                         <Row>
-                              <Contact key={uniqid} contact={this.state.about}/>
+                              <div className="mt-5"></div>
+                              <Col md={1}></Col>
+                              <Col md={10}>
+                                    <Card className="mb-5">
+                                          <CardHeader className="text-center h1 fc">CV-Project</CardHeader>
+                                          <CardBody className="mx-3">
+                                                <div>
+                                                      <Contact key={uniqid} contact={this.state.about}/>
+                                                </div>
+                                                <div className="pb-5">
+                                                      {<Education education={this.state.education}/>}
+                                                </div>
+                                                <div>
+                                                      {<Work work={this.state.work} />}
+                                                </div>
+                                          </CardBody>
+                                          
+                                    </Card>
+                              </Col>
+                              <Col md={1}></Col>
+
                         </Row>
 
-                        <Row>
-                              {<Education education={this.state.education}/>}
-                        </Row>
-                        
+
+                            
                   </Container>
             );
       }

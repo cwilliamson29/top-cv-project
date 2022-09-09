@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-import { Row, Form, FormGroup, Label, Input, Button, Col } from 'reactstrap';
+import { Row, Label, Input, Button, Col } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faCoffee } from '@fortawesome/free-solid-svg-icons'
 import uniqid from 'uniqid'
 import RenderEducation from './renderEdu'
 
 
+
 class Education extends React.Component {
+
       constructor(props) {
             super(props);
             this.state = {
-                  educationArray: [],
-                  education: {
-                        id: uniqid(),
-                        school: '',
-                        study: '',
-                        dateFrom: '',
-                        dateTo: '',
-                        editing: true,
-                  }
+                  educationArray: []
             }
             this.handleDelete = this.handleDelete.bind(this);
       }
@@ -28,8 +24,7 @@ class Education extends React.Component {
             })
       }
 
-      addEducation = (e) => {
-            e.preventDefault();
+      addEducation = () => {
             this.setState(prevState => ({
                   educationArray: [...prevState.educationArray, {
                         id: uniqid(),
@@ -59,22 +54,17 @@ class Education extends React.Component {
       render() {
 
             return (
-                  <div>
-                    <div className="row text-center">
+                  <Row>
+                    <Col md={12} className="text-center">
                         <h1>Add Areas of Study</h1>
-                    </div>
+                    </Col>
 
                     {this.state.educationArray.map((item, i) => (<RenderEducation key={item.id} education={item} onDelete={this.handleDelete} />))}
 
-                    <form onSubmit={this.addEducation}>
-                        <Button type="submit">add</Button>
-                    </form>
-                    <form onSubmit={this.logger}>
-                        <Button type="submit">log</Button>
-                    </form>
-                    
-
-                  </div>
+                    <div className="text-center pt-3">
+                        <Button className="bg-primary rounded-pill" onClick={() => { this.addEducation() }}><FontAwesomeIcon icon={faPlus} /></Button>
+                    </div>
+                  </Row>
             )
       }
 
